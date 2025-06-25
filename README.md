@@ -1,8 +1,8 @@
-# 🚀 Proceso ETL con Diferentes Orígenes o Fuentes de Datos (Data Source)
+# Proceso ETL con Diferentes Orígenes o Fuentes de Datos (Data Source)
 
 ---
 
-### 👨‍🎓 Autor del Proyecto
+### Autor del Proyecto
 
 - **Nombre:** Luis Octavio López Martínez  
 - **Matrícula:** 220096  
@@ -11,7 +11,7 @@
 
 ---
 
-## 📚 Descripción General
+## Descripción General
 
 El estudiante aplicará los conceptos del proceso **ETL** (**Extracción, Transformación y Carga de Datos**), utilizando fuentes de datos variadas como APIs públicas, bases de datos relacionales (PostgreSQL) y no relacionales (MongoDB), para demostrar un flujo completo de análisis de datos.
 
@@ -19,7 +19,7 @@ Además, se emplearán herramientas de visualización interactivas como **Dash**
 
 ---
 
-## 🐳 Uso de Docker y PowerShell
+## Uso de Docker y PowerShell
 
 - Se utilizaron **contenedores Docker** para levantar las bases de datos PostgreSQL y MongoDB, garantizando entornos reproducibles y portables.
 - Los comandos para manejar los contenedores y ejecutar los scripts se automatizaron mediante **PowerShell** con `Invoke-Command` y scripts `.ps1`, facilitando la ejecución desde Windows.
@@ -27,13 +27,13 @@ Además, se emplearán herramientas de visualización interactivas como **Dash**
 
 ---
 
-## 📸 Visualización de Contenedores Docker
+## Visualización de Contenedores Docker
 
 ![Contenedores Docker levantados](assets/docker.png)
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 <p align="left">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
@@ -51,7 +51,7 @@ Además, se emplearán herramientas de visualización interactivas como **Dash**
 
 ---
 
-## 🧩 Contenido
+## Contenido
 
 Este proyecto se divide en tres partes:
 
@@ -66,17 +66,17 @@ Cada módulo incluye su propio script, documentación y visualización.
 
 ## Actividades
 
-## 🗃️ 1. Base de Datos Relacional (PostgreSQL)
+## 1. Base de Datos Relacional (PostgreSQL)
 
-### 📄 Archivo principal: `scripts/p1.py`
+### Archivo principal: `scripts/p1.py`
 
-### 🧠 Descripción del Script
+### Descripción del Script
 
 Este script se conecta a una base de datos relacional **PostgreSQL** utilizando la librería `SQLAlchemy`. Su propósito es extraer, transformar y visualizar artículos de Wikipedia almacenados en la tabla `public.articles`.
 
 ---
 
-### 🔄 Flujo de Trabajo:
+### Flujo de Trabajo:
 
 1. **Conexión a la base de datos:**
    ```python
@@ -102,24 +102,24 @@ Este script se conecta a una base de datos relacional **PostgreSQL** utilizando 
 
 ---
 
-### 📊 Resultados Visuales
+### Resultados Visuales
 
 | Histograma de longitud de artículos | Top 10 artículos más largos |
 |:-----------------------------------:|:---------------------------:|
 | ![Histograma](assets/p1.png)         | ![Top 10](assets/p11.png)   |
 
 
-## 🌐 2. API Pública (COVID-19)
+## 2. API Pública (COVID-19)
 
-### 📄 Archivo principal: `scripts/p2.py`
+### Archivo principal: `scripts/p2.py`
 
-### 🧠 Descripción del Script
+### Descripción del Script
 
 Este script consume una **API pública de COVID-19** y visualiza los casos confirmados por país en un mapa interactivo. Utiliza **Flask** como servidor web y **Bokeh** para renderizar visualizaciones geográficas dinámicas.
 
 ---
 
-### 🔄 Flujo de Trabajo:
+### Flujo de Trabajo:
 
 1. **Consumo de la API**:
    - Se obtienen los datos actualizados desde `https://disease.sh/v3/covid-19/countries`.
@@ -139,13 +139,13 @@ Este script consume una **API pública de COVID-19** y visualiza los casos confi
 
 ---
 
-### 🗺️ Visualización
+### Visualización
 
 ![Visualización API COVID](assets/p3.png)
 
 ---
 
-### 🧩 Librerías Utilizadas
+### Librerías Utilizadas
 
 - `requests`: para consumir la API REST
 - `pandas`: para manejar y transformar los datos
@@ -158,7 +158,7 @@ Este script consume una **API pública de COVID-19** y visualiza los casos confi
 
 ---
 
-### 💡 Notas
+### Notas
 
 - El script obtiene **datos en vivo**, así que los números cambian con el tiempo.
 - El código ISO3 es clave para integrar correctamente los datos en el mapa.
@@ -167,17 +167,17 @@ Este script consume una **API pública de COVID-19** y visualiza los casos confi
 ---
   
 
-## ☁️ 3. Extra: Base de Datos No Relacional (MongoDB)
+## 3. Extra: Base de Datos No Relacional (MongoDB)
 
-### 🔄 Extracción, transformación y carga (ETL)
+### Extracción, transformación y carga (ETL)
 
-#### 📄 Archivo: `scripts/pe.py`
+#### Archivo: `scripts/pe.py`
 
 Este script obtiene datos históricos de clima para varias ciudades mexicanas desde la **API pública de Open-Meteo**, los transforma y los carga en una colección de **MongoDB** (`clima.historico`).
 
 ---
 
-### 🧠 Proceso de ETL:
+### Proceso de ETL:
 
 1. **Extracción**:
    - Se hace una petición HTTP a la API de Open-Meteo por ciudad y por fechas.
@@ -192,15 +192,15 @@ Este script obtiene datos históricos de clima para varias ciudades mexicanas de
 
 ---
 
-### 🧪 Visualización y análisis
+### Visualización y análisis
 
-#### 📄 Archivo: `scripts/pm.py`
+#### Archivo: `scripts/pm.py`
 
 Una vez cargados los datos en MongoDB, este segundo script se conecta a la base, limpia los datos y genera visualizaciones con **Dash** y **Plotly**.
 
 ---
 
-### 📈 Visualización:
+### Visualización:
 
 - Se muestra un dropdown interactivo para seleccionar ciudad.
 - Se grafican las temperaturas máximas y mínimas diarias.
@@ -208,7 +208,7 @@ Una vez cargados los datos en MongoDB, este segundo script se conecta a la base,
 
 ---
 
-### 🗺️ Resultados Visuales
+### Resultados Visuales
 
 | Temperaturas por ciudad (línea) |
 |---------------------------------|
@@ -217,7 +217,7 @@ Una vez cargados los datos en MongoDB, este segundo script se conecta a la base,
 
 ---
 
-### 💡 Notas
+### Notas
 
 - La API de Open-Meteo no requiere autenticación y soporta fechas pasadas con precisión diaria.
 - MongoDB permite almacenar documentos por ciudad y fecha sin estructura rígida.
@@ -225,7 +225,7 @@ Una vez cargados los datos en MongoDB, este segundo script se conecta a la base,
 
 ---
 
-### 🧩 Librerías Utilizadas
+### Librerías Utilizadas
 
 - `requests`: consumir API de clima
 - `pymongo`: conexión y carga de datos a MongoDB
