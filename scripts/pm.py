@@ -19,19 +19,35 @@ ciudades = df["ciudad"].dropna().unique()
 
 # Inicializar Dash
 app = dash.Dash(__name__)
+app.title = "Clima Histórico"
 
 app.layout = html.Div([
-    html.H1("Clima Histórico por Ciudad", style={"textAlign": "center"}),
+    html.H1("Clima Histórico por Ciudad", style={
+        "textAlign": "center",
+        "color": "#FFFFFF",
+        "marginBottom": "20px",
+        "fontFamily": "Arial, sans-serif"
+    }),
 
     dcc.Dropdown(
         id="ciudad-dropdown",
         options=[{"label": c, "value": c} for c in ciudades],
-        value=ciudades[0],  
-        style={"width": "300px", "margin": "0 auto"}
+        value=ciudades[0],
+        style={
+            "width": "300px",
+            "margin": "0 auto",
+            "color": "#000000",
+            "backgroundColor": "#f0f0f0"
+        }
     ),
 
-    dcc.Graph(id="grafica-clima", style={"marginTop": "30px"})
-])
+    dcc.Graph(id="grafica-clima", style={"marginTop": "40px"})
+], style={
+    "backgroundColor": "#1e1e1e",
+    "padding": "40px",
+    "minHeight": "100vh",
+    "fontFamily": "Arial, sans-serif"
+})
 
 
 @app.callback(
@@ -44,12 +60,20 @@ def actualizar_grafica(ciudad):
         df_ciudad,
         x="fecha",
         y=["temp_max", "temp_min"],
-        title=f"Temperaturas Diarias - {ciudad}",
+        title=f"📈 Temperaturas Diarias - {ciudad}",
         labels={"value": "Temperatura (°C)", "variable": "Tipo"},
-        template="plotly_dark"
+        template="plotly_dark",
+        markers=True
     )
-    fig.update_layout(xaxis_title="Fecha", yaxis_title="°C")
+    fig.update_layout(
+        xaxis_title="Fecha",
+        yaxis_title="°C",
+        title_x=0.5,
+        legend_title_text="",
+        font=dict(color="#FFFFFF")
+    )
     return fig
+
 
 if __name__ == "__main__":
     app.run(debug=True)
