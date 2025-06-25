@@ -1,0 +1,80 @@
+Marco A. Ramírez - Matrícula
+Proceso ETL como parte de la Data Science 
+
+(22Firmas )
+
+
+El estudiante aplicará los conceptos del proceso ETL , extracción, tratamiento y carga de datos, así cómo los comando básico utilizados en el análisis de datos usando la herremaienta  de Jupyter  Notebook y el lenguaje de programación de Python, a través de la librerías apropiadas.
+
+
+Activiades:   
+
+
+Importanción de Librerias.  ✅✖️
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import plotly.express as px
+import seaborn as sns
+
+Carga de Datos 
+
+Creación de un Dataframe desde un archivo (.csv), comando: df = pd.read_csv('datos_actualizados.csv') ✅
+
+Exploración del DF (columnas, tuplas, tipos de dato), comando: df.info() ✅
+
+Lectura de los primeros registros, comando: df.head() ✅
+
+Lectutra de los últimos registros, comando: df.tail() ✅
+
+Resumen de estadístico básico de los datos (cuantitativos), comando: df.describe() ✅
+
+Matríz de  Búsqueda de datos nulos, comando: df.isnull() ✅
+
+Matríz de Búsqueda de datos no nulos, comando: df.notnull() ✅
+
+Limpieza de Datos
+
+Eliminación de datos duplicados, comando: df = df.drop_duplicates() ✅
+
+Eliminación de los registros que contengan datos nulos, comando: df = df.dropna() ✅
+
+Eliminación de los registros que no cuenten con un salario (salary y salary_usd), comando: df = df.dropna(subset=['salary', 'salary_in_usd']) ✅
+
+Sustituir Valores Nulos con un valor específico ("N/A") en todo el DataFrame, comando: df = df.fillna('N/A') ✅
+
+Sustituir Valores Nulos con el valor específico de 0.0 en las columnas de salarios  (salary y salary_usd), comando: df[['salary', 'salary_in_usd']] = df[['salary', 'salary_in_usd']].fillna(0.0) ✅
+
+Eliminar los valores no permitidos en la columna de  experience_level, solo siendo los premitidos :  SE, MI, EN , EX, comando: df = df[df['experience_level'].isin(['SE', 'MI', 'EN', 'EX'])] ✅
+
+Graficación Básica de Datos
+
+Elaboración de Histogramas, comando: df.hist(figsize=(10,8)); plt.show() ✅
+
+Histograma de una columna en específico (work_year), comando: df.hist(column='work_year'); plt.xlabel('Año de trabajo'); plt.ylabel('Frecuencia'); plt.title('Histograma de work_year'); plt.show() ✅
+
+Buclé de Graficacíón de cada columna (cualitativos y cuantitativos), comando: 
+for col in df.columns:
+    if df[col].dtype == 'object':
+        df[col].value_counts().plot(kind='bar')
+        plt.title(col)
+        plt.show()
+    else:
+        df[col].hist()
+        plt.title(col)
+        plt.show() ✅
+
+Gráfica de Grupos de Salario (0 a 100k, 100 a 200l, 250ñ+), comando: 
+bins = [0, 100000, 200000, df['salary_in_usd'].max()]
+labels = ['0-100k', '100k-200k', '200k+']
+df['salary_group'] = pd.cut(df['salary_in_usd'], bins=bins, labels=labels, include_lowest=True)
+df['salary_group'].value_counts().sort_index().plot(kind='bar')
+plt.title('Grupos de Salario (USD)')
+plt.xlabel('Grupo salarial')
+plt.ylabel('Cantidad de empleados')
+plt.show() ✅
+
+
+
+Acceder a : https://www.kaggle.com/code/docxian/ai-ml-salaries
